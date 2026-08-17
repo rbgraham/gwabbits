@@ -19,7 +19,7 @@ export const DEFAULT_PUNISHMENTS = [
   'Cold shower. Full five minutes.',
   'No caffeine tomorrow.',
   '10km. Today.',
-  'Donate £20 to a cause you despise.',
+  'Donate $20 to a cause you despise.',
 ];
 
 export function blankState() {

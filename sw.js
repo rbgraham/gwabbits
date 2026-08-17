@@ -3,7 +3,7 @@
    Bump CACHE_VERSION on every deploy. The app prompts before activating a new
    worker (see application.js) rather than swapping itself out mid-session. */
 
-const CACHE_VERSION = 'habits-v1';
+const CACHE_VERSION = 'habits-v2';
 
 // Relative to the worker's own scope, so this works at any deploy subpath.
 const SHELL = [
