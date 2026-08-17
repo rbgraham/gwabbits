@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Settings · Habits</title>
+
+  <meta name="theme-color" content="#0a0a0b">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Habits">
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+  <link rel="icon" href="assets/icons/icon-192.png" type="image/png">
+
+  <link rel="stylesheet" href="assets/css/fonts.css" data-turbo-track="reload">
+  <link rel="stylesheet" href="assets/css/tokens.css" data-turbo-track="reload">
+  <link rel="stylesheet" href="assets/css/base.css" data-turbo-track="reload">
+  <link rel="stylesheet" href="assets/css/app.css" data-turbo-track="reload">
+  <script type="module" src="assets/js/application.js" data-turbo-track="reload"></script>
+</head>
+<body>
+  <header class="topbar" data-controller="topbar">
+    <div class="shell topbar__row">
+      <a class="back-link" href="index.html">← Back</a>
+      <nav class="nav" aria-label="Main">
+        <a class="nav__link" href="history.html">History</a>
+        <a class="nav__link" href="settings.html" aria-current="page">Settings</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell page" data-controller="settings">
+    <h1 class="title-lg">Settings</h1>
+
+    <section class="section">
+      <h2 class="section__title">The five punishments</h2>
+      <p class="section__note" style="margin-top: 0">
+        The wheel lands on a number; these decide what it means. Make them real
+        enough to be worth avoiding.
+      </p>
+      <ul class="punishments" data-settings-target="punishments"></ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Reminders</h2>
+      <div class="row">
+        <span class="row__label">Daily reminders</span>
+        <span class="switch">
+          <input type="checkbox" data-settings-target="remindersToggle"
+                 data-action="settings#toggleReminders" aria-label="Enable daily reminders">
+          <span class="switch__track"></span>
+        </span>
+      </div>
+      <div class="time-inputs">
+        <input class="field" type="time" aria-label="First reminder"
+               data-settings-target="timeA" data-action="change->settings#updateTimes">
+        <input class="field" type="time" aria-label="Second reminder"
+               data-settings-target="timeB" data-action="change->settings#updateTimes">
+      </div>
+      <p class="section__note" data-settings-target="permissionNote"></p>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Your data</h2>
+      <p class="section__note" style="margin-top: 0">
+        Everything lives on this device. Nothing is uploaded, and there is no
+        account.
+      </p>
+      <div class="button-row" style="margin-top: var(--s-4)">
+        <button type="button" class="btn btn--quiet" data-action="settings#exportData">
+          Export backup
+        </button>
+        <button type="button" class="btn btn--quiet" data-action="settings#pickImport">
+          Import backup
+        </button>
+        <input type="file" accept="application/json,.json" hidden
+               data-settings-target="importInput" data-action="settings#importData">
+      </div>
+      <p class="section__note" data-settings-target="importNote"></p>
+      <p class="section__note" data-settings-target="storageNote"></p>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Start over</h2>
+      <p class="section__note" style="margin-top: 0">
+        Erases every task, streak, week and spin. There is no undo — export first.
+      </p>
+      <div class="button-row" style="margin-top: var(--s-4)">
+        <button type="button" class="btn btn--danger" data-action="settings#resetAll">
+          Erase everything
+        </button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">About</h2>
+      <p class="prose section__note" style="margin-top: 0">
+        Add this to your home screen to run it as an app. Reminders currently fire
+        only while it's open — there's no server sending them yet.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

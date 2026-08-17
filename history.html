@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>History · Habits</title>
+
+  <meta name="theme-color" content="#0a0a0b">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Habits">
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+  <link rel="icon" href="assets/icons/icon-192.png" type="image/png">
+
+  <link rel="stylesheet" href="assets/css/fonts.css" data-turbo-track="reload">
+  <link rel="stylesheet" href="assets/css/tokens.css" data-turbo-track="reload">
+  <link rel="stylesheet" href="assets/css/base.css" data-turbo-track="reload">
+  <link rel="stylesheet" href="assets/css/app.css" data-turbo-track="reload">
+  <script type="module" src="assets/js/application.js" data-turbo-track="reload"></script>
+</head>
+<body>
+  <header class="topbar" data-controller="topbar">
+    <div class="shell topbar__row">
+      <a class="back-link" href="index.html">← Back</a>
+      <nav class="nav" aria-label="Main">
+        <a class="nav__link" href="history.html" aria-current="page">History</a>
+        <a class="nav__link" href="settings.html">Settings</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell page" data-controller="history">
+    <h1 class="title-lg">History</h1>
+
+    <div class="streaks">
+      <div class="streaks__item">
+        <span class="streaks__value" data-history-target="streak">0</span>
+        <span class="label">Current streak</span>
+      </div>
+      <div class="streaks__item">
+        <span class="streaks__value streaks__value--muted" data-history-target="longest">0</span>
+        <span class="label">Longest</span>
+      </div>
+    </div>
+
+    <div class="stats" data-history-target="totals"></div>
+
+    <h2 class="label" style="margin-bottom: var(--s-3)">By week</h2>
+    <ul class="week-list" data-history-target="weeks"></ul>
+
+    <h2 class="label" style="margin: var(--s-8) 0 var(--s-3)">The wheel</h2>
+    <ul class="spin-list" data-history-target="spins"></ul>
+
+    <p class="section__note" style="margin-top: var(--s-6)">
+      Green is a day won, red a day missed, grey a rest day. A dashed dot is time
+      away — a gap of three or more days that runs across a Monday pauses your
+      streak instead of breaking it. A bad midweek stretch doesn't count.
+    </p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "habits",
+  "version": "1.0.0",
+  "description": "A weekly habit tracker with a wheel of consequences. Static PWA, no build step.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test 'test/*.test.mjs'",
+    "serve": "python3 -m http.server 4173 --bind 127.0.0.1"
+  },
+  "devDependencies": {},
+  "//": "Turbo and Stimulus are vendored as ES modules in assets/js/vendor/ — there is no install or build step. See VENDOR.md to refresh them."
+}

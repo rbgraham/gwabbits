@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Habits</title>
+  <meta name="description" content="A weekly habit tracker with a wheel of consequences.">
+
+  <meta name="theme-color" content="#0a0a0b">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Habits">
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+  <link rel="icon" href="assets/icons/icon-192.png" type="image/png">
+
+  <link rel="preload" href="assets/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css" data-turbo-track="reload">
+  <link rel="stylesheet" href="assets/css/tokens.css" data-turbo-track="reload">
+  <link rel="stylesheet" href="assets/css/base.css" data-turbo-track="reload">
+  <link rel="stylesheet" href="assets/css/app.css" data-turbo-track="reload">
+  <script type="module" src="assets/js/application.js" data-turbo-track="reload"></script>
+</head>
+<body>
+  <header class="topbar" data-controller="topbar">
+    <div class="shell topbar__row">
+      <a class="topbar__wordmark" href="index.html">Habits</a>
+      <nav class="nav" aria-label="Main">
+        <a class="nav__link" href="history.html">History</a>
+        <a class="nav__link" href="settings.html">Settings</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell page" data-controller="home">
+    <!-- Blocking gate: rendered only when the wheel is owed. -->
+    <div class="gate" data-home-target="gate" hidden></div>
+
+    <button type="button" class="pain" data-action="home#openWheel">
+      Pain
+    </button>
+
+    <div data-home-target="banner"></div>
+
+    <h1 class="title-lg">This week</h1>
+
+    <div class="streaks">
+      <div class="streaks__item">
+        <span class="streaks__value" data-home-target="streak">0</span>
+        <span class="label">Current streak</span>
+      </div>
+      <div class="streaks__item">
+        <span class="streaks__value streaks__value--muted" data-home-target="longest">0</span>
+        <span class="label">Longest</span>
+      </div>
+    </div>
+
+    <div class="week-head">
+      <span class="label">Mon — Sun</span>
+      <span class="numeric week-head__range" data-home-target="weekLabel"></span>
+    </div>
+
+    <div class="week-grid" data-home-target="grid"></div>
+
+    <p style="margin-top: var(--s-6)">
+      <a class="btn btn--quiet btn--full" href="week.html" data-home-target="planLink">Plan this week</a>
+    </p>
+  </main>
+
+  <!-- Day detail -->
+  <dialog class="sheet" data-controller="daysheet" aria-labelledby="daysheet-title">
+    <div class="sheet__grip" data-sheet-grip></div>
+    <div class="sheet__head">
+      <div>
+        <h2 class="sheet__title" id="daysheet-title" data-daysheet-target="title"></h2>
+        <p class="sheet__subtitle" data-daysheet-target="subtitle"></p>
+      </div>
+      <button type="button" class="btn btn--bare btn--sm" data-action="daysheet#close">Done</button>
+    </div>
+    <div class="sheet__body" data-daysheet-target="body"></div>
+  </dialog>
+
+  <!-- Wheel of Pain -->
+  <dialog class="sheet" data-controller="wheel" aria-labelledby="wheel-title">
+    <div class="sheet__grip" data-sheet-grip></div>
+    <div class="sheet__head">
+      <div>
+        <h2 class="sheet__title" id="wheel-title">Wheel of Pain</h2>
+        <p class="sheet__subtitle" data-wheel-target="prompt"></p>
+      </div>
+      <button type="button" class="btn btn--bare btn--sm"
+              data-wheel-target="close" data-action="wheel#close">Close</button>
+    </div>
+
+    <div class="sheet__body">
+      <div class="wheel-stage">
+        <div class="wheel__pointer" aria-hidden="true"></div>
+        <svg class="wheel-svg" viewBox="0 0 200 200" role="img" aria-label="Wheel of Pain">
+          <g class="wheel__spin" data-wheel-target="wheel"></g>
+        </svg>
+      </div>
+
+      <button type="button" class="btn btn--danger btn--full"
+              data-wheel-target="spinBtn" data-action="wheel#spin">Spin</button>
+
+      <div data-wheel-target="result"></div>
+
+      <div class="sheet__section">
+        <p class="label">Your five — edit any time</p>
+        <ul class="punishments" data-wheel-target="punishments"></ul>
+      </div>
+    </div>
+  </dialog>
+</body>
+</html>

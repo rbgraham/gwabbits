@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Plan the week · Habits</title>
+
+  <meta name="theme-color" content="#0a0a0b">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Habits">
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+  <link rel="icon" href="assets/icons/icon-192.png" type="image/png">
+
+  <link rel="stylesheet" href="assets/css/fonts.css" data-turbo-track="reload">
+  <link rel="stylesheet" href="assets/css/tokens.css" data-turbo-track="reload">
+  <link rel="stylesheet" href="assets/css/base.css" data-turbo-track="reload">
+  <link rel="stylesheet" href="assets/css/app.css" data-turbo-track="reload">
+  <script type="module" src="assets/js/application.js" data-turbo-track="reload"></script>
+</head>
+<body>
+  <header class="topbar" data-controller="topbar">
+    <div class="shell topbar__row">
+      <a class="back-link" href="index.html">← Back</a>
+      <a class="topbar__wordmark" href="index.html">Habits</a>
+    </div>
+  </header>
+
+  <main class="shell page" data-controller="planner">
+    <h1 class="title-lg">Set the week</h1>
+    <p class="numeric week-head__range" data-planner-target="label"></p>
+
+    <p class="prose" style="margin-block: var(--s-4) var(--s-5); color: var(--text-secondary)">
+      Up to three per day. Keep them small enough that you'll actually do them —
+      a day counts as won when everything on it is ticked, however many that is.
+    </p>
+
+    <div data-planner-target="notice"></div>
+
+    <div data-planner-target="days"></div>
+
+    <div class="sticky-actions">
+      <button type="button" class="btn btn--primary btn--full"
+              data-planner-target="save" data-action="planner#save">Save the week</button>
+    </div>
+  </main>
+</body>
+</html>

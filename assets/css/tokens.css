@@ -1,0 +1,119 @@
+/* ---------------------------------------------------------------------------
+   Design tokens.
+
+   Three sources, deliberately separated:
+   - Palette + typefaces come from the project README (near-black, blood-red,
+     sage, gold; Bebas / Inter / JetBrains Mono).
+   - Spacing ramp, elevation steps and motion curves follow Fluent's token
+     structure.
+   - Type scale, line-height and measure follow Kit.com's rhythm — restrained
+     scale, generous leading, comfortable measure.
+
+   Dark is the only theme. The app is meant to look like this.
+   --------------------------------------------------------------------------- */
+
+:root {
+  /* --- Ground ------------------------------------------------------------ */
+  --bg: #0a0a0b;
+  --surface: #141416;
+  --surface-raised: #1c1c20;
+  --surface-sunken: #050506;
+  --hairline: #26262b;
+  --hairline-strong: #34343b;
+
+  /* --- Accents. Three, no more. ------------------------------------------ */
+  --red: #c2181f;          /* danger, incomplete, the PAIN button */
+  --red-dim: #7d1016;
+  --red-wash: rgba(194, 24, 31, 0.12);
+  --sage: #8a9a7b;         /* success, completion */
+  --sage-dim: #55604b;
+  --sage-wash: rgba(138, 154, 123, 0.14);
+  --gold: #d4a24c;         /* streaks, achievement */
+  --gold-dim: #7d5f2c;
+  --gold-wash: rgba(212, 162, 76, 0.12);
+
+  /* --- Text. Warm off-white, not pure #fff. ------------------------------ */
+  --text: #f0efec;
+  --text-secondary: #a3a19b;
+  --text-muted: #6f6d68;
+  --text-on-accent: #0a0a0b;
+
+  /* --- Type -------------------------------------------------------------- */
+  --font-display: 'Bebas Neue', 'Haettenschweiler', 'Arial Narrow', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Restrained scale, ~1.25. Kit.com does not shout with size. */
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.3125rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.5rem;
+  --text-3xl: 3.5rem;
+
+  /* Generous leading is most of what makes this feel designed. */
+  --leading-tight: 1.05;   /* display faces only */
+  --leading-snug: 1.35;
+  --leading-normal: 1.6;
+  --leading-loose: 1.75;
+
+  --tracking-display: 0.02em;
+  --tracking-wide: 0.08em;
+  --tracking-caps: 0.14em;
+
+  --measure: 34rem;        /* comfortable reading width */
+
+  /* --- Spacing. Fluent's 4px ramp. --------------------------------------- */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.25rem;
+  --s-6: 1.5rem;
+  --s-8: 2rem;
+  --s-10: 2.5rem;
+  --s-12: 3rem;
+  --s-16: 4rem;
+
+  /* --- Radii. iOS-leaning, softer than Fluent's defaults. ---------------- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-round: 999px;
+
+  /* --- Elevation --------------------------------------------------------- */
+  --shadow-2: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-4: 0 2px 8px rgba(0, 0, 0, 0.55);
+  --shadow-8: 0 6px 20px rgba(0, 0, 0, 0.6);
+  --shadow-16: 0 12px 40px rgba(0, 0, 0, 0.7);
+  --shadow-28: 0 22px 70px rgba(0, 0, 0, 0.78);
+
+  /* --- Motion. Fluent's curves and durations. ---------------------------- */
+  --dur-fast: 100ms;
+  --dur-normal: 150ms;
+  --dur-gentle: 250ms;
+  --dur-slow: 400ms;
+  --ease-standard: cubic-bezier(0.8, 0, 0.2, 1);
+  --ease-decel: cubic-bezier(0.1, 0.9, 0.2, 1);
+  --ease-accel: cubic-bezier(0.7, 0, 1, 0.5);
+
+  /* --- iOS layout -------------------------------------------------------- */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --tap-min: 44px;         /* HIG minimum touch target */
+  --gutter: var(--s-5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 1ms;
+    --dur-normal: 1ms;
+    --dur-gentle: 1ms;
+    --dur-slow: 1ms;
+  }
+}
